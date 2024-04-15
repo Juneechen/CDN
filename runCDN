@@ -1,0 +1,15 @@
+#!/bin/bash
+# usage: ./runCDN -p <port> -o <origin> -n <name> -u <username> -i <keyfile>
+# usage: ./runCDN -p 20500 -o cs5700cdnorigin.ccs.neu.edu -n cdn-dns.khoury.northeastern.edu -u chen.shuju -i ssh-ed25519-chen.shuju.priv 
+
+# use nohup and & to run a program in the background and have it survive ssh log-out
+
+ssh -i ${10} $8@cdn-dns.khoury.northeastern.edu "nohup ./dnsserver -p $2 -n $6 > /dev/null 2>&1 & exit"
+
+ssh -v -i ${10} $8@cdn-http3.khoury.northeastern.edu "nohup ./httpserver -p $2 -o $4 > /dev/null 2>&1 & exit"
+ssh -v -i ${10} $8@cdn-http4.khoury.northeastern.edu "nohup ./httpserver -p $2 -o $4 > /dev/null 2>&1 & exit"
+ssh -v -i ${10} $8@cdn-http7.khoury.northeastern.edu "nohup ./httpserver -p $2 -o $4 > /dev/null 2>&1 & exit"
+ssh -v -i ${10} $8@cdn-http11.khoury.northeastern.edu "nohup ./httpserver -p $2 -o $4 > /dev/null 2>&1 & exit"
+ssh -v -i ${10} $8@cdn-http14.khoury.northeastern.edu "nohup ./httpserver -p $2 -o $4 > /dev/null 2>&1 & exit"
+ssh -v -i ${10} $8@cdn-http15.khoury.northeastern.edu "nohup ./httpserver -p $2 -o $4 > /dev/null 2>&1 & exit"
+ssh -v -i ${10} $8@cdn-http16.khoury.northeastern.edu "nohup ./httpserver -p $2 -o $4 > /dev/null 2>&1 & exit"

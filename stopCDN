@@ -1,0 +1,20 @@
+#!/bin/bash
+# usage: ./stopCDN -p <port> -o <origin> -n <name> -u <username> -i <keyfile>
+# usage: ./stopCDN -p 20500 -o cs5700cdnorigin.ccs.neu.edu -n cdn-dns.khoury.northeastern.edu -u chen.shuju -i ssh-ed25519-chen.shuju.priv
+
+ssh -i ${10} $8@cdn-dns.khoury.northeastern.edu "killall -u $8 python3; exit"
+
+ssh -i ${10} $8@cdn-http3.khoury.northeastern.edu "killall -u $8 python3; exit"
+ssh -i ${10} $8@cdn-http4.khoury.northeastern.edu "killall -u $8 python3; exit"
+ssh -i ${10} $8@cdn-http7.khoury.northeastern.edu "killall -u $8 python3; exit"
+ssh -i ${10} $8@cdn-http11.khoury.northeastern.edu "killall -u $8 python3; exit"
+ssh -i ${10} $8@cdn-http14.khoury.northeastern.edu "killall -u $8 python3; exit"
+ssh -i ${10} $8@cdn-http15.khoury.northeastern.edu "killall -u $8 python3; exit"
+ssh -i ${10} $8@cdn-http16.khoury.northeastern.edu "killall -u $8 python3; exit"
+
+# ssh -i ${10} $8@cdn-http3.khoury.northeastern.edu "pkill -f httpserver; exit"
+# ssh -i ${10} $8@cdn-http3.khoury.northeastern.edu "pkill -f httpserver; exit"
+# ssh -i ${10} $8@cdn-http3.khoury.northeastern.edu "pkill -f httpserver; exit"
+# ssh -i ${10} $8@cdn-http3.khoury.northeastern.edu "pkill -f httpserver; exit"
+# ssh -i ${10} $8@cdn-http3.khoury.northeastern.edu "pkill -f httpserver; exit"
+# ssh -i ${10} $8@cdn-http3.khoury.northeastern.edu "pkill -f httpserver; exit"
